@@ -16,15 +16,16 @@ import com.spaceshooter.strategy.MissileStrategy;
  * 3. Can check for collisions with enemies
  */
 public class LaserMissileAdapter implements MissileStrategy {
-    private final LaserWeapon laserWeapon;
+    // TODO: Add necessary fields
+    private LaserWeapon laserWeapon;
+    private LaserBeam currentBeam;
 
     /**
-     * Constructs a new LaserMissileAdapter with the specified laser weapon.
-     *
-     * @param laserWeapon the laser weapon to adapt
+     * Constructs a new LaserMissileAdapter.
+     * TODO: Initialize the laser weapon
      */
     public LaserMissileAdapter() {
-        this.laserWeapon = new LaserWeapon();
+        // TODO: Initialize the laser weapon
     }
 
     /**
@@ -34,40 +35,17 @@ public class LaserMissileAdapter implements MissileStrategy {
      * - Use beam dimensions for size
      * - Handle collisions using beam's intersection check
      *
-     * @param x the x-coordinate where the missile should be created
-     * @param y the y-coordinate where the missile should be created
+     * @param initialX the x-coordinate where the missile should be created
+     * @param initialY the y-coordinate where the missile should be created
      * @return a new missile that wraps a laser beam
      */
     @Override
-    public Missile createMissile(int x, int y) {
-        LaserBeam beam = laserWeapon.fireLaser(x, y);
-        return new Missile(x, y, true) {
-            @Override
-            public void update() {
-                beam.move();
-                this.x = beam.getSourceX();
-                this.y = beam.getSourceY();
-            }
-
-            @Override
-            public boolean collidesWith(Enemy enemy) {
-                return beam.intersectsWith(enemy.getX(), enemy.getY(), enemy.getWidth(), enemy.getHeight());
-            }
-
-            @Override
-            public boolean collidesWith(Player player) {
-                return beam.intersectsWith(player.getX(), player.getY(), player.getWidth(), player.getHeight());
-            }
-
-            @Override
-            public int getWidth() {
-                return beam.getWidth();
-            }
-
-            @Override
-            public int getHeight() {
-                return beam.getHeight();
-            }
-        };
+    public Missile createMissile(int initialX, int initialY) {
+        // TODO: Create a new laser beam using the weapon
+        // TODO: Return an anonymous Missile class that:
+        // 1. Updates position based on beam movement
+        // 2. Uses beam dimensions for size
+        // 3. Handles collisions using beam's intersection check
+        return null;
     }
 }
